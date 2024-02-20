@@ -20,7 +20,9 @@ export const Input = forwardRef<HTMLInputElement, Props>(
 
     return (
       <div className="flex flex-col gap-1">
-        <label htmlFor={name}>{label}</label>
+        <label className="font-semibold" htmlFor={name}>
+          {label}
+        </label>
         <input
           type="text"
           className={`min-h-9 w-full rounded border border-slate-300 bg-slate-50 px-2 py-1 ${invalid && 'border-red-400 bg-red-50'}`}

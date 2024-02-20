@@ -17,7 +17,7 @@ const RootLayout = ({
   return (
     <html lang="en">
       <body className={albert.className}>
-        <main className="m-auto flex min-h-screen max-w-xl flex-col items-center justify-between pt-10 text-slate-700 text-sm">
+        <main className="m-auto min-h-screen max-w-xl items-center justify-between pt-10 text-slate-700 text-sm">
           {children}
         </main>
       </body>
