@@ -2,14 +2,21 @@
 import { useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useRouter } from 'next/navigation';
 
-import { BasicFormType, basicFormDefaultValues, basicFormSchema } from '@/app/hooks/basic/useBasic';
 import { Form } from '@/components/common/form/form';
 import { Input } from '@/components/common/form/input';
 import { Container } from '@/components/common/layout/container';
 import { Button } from '@/components/common/operables/button';
+import {
+  BasicFormType,
+  basicFormDefaultValues,
+  basicFormSchema,
+} from '@/hooks/basic/useBasic';
 
 export const BasicForm = () => {
+  const router = useRouter();
+
   const formReturn = useForm<BasicFormType>({
     defaultValues: basicFormDefaultValues,
     mode: 'onSubmit',
@@ -21,6 +28,10 @@ export const BasicForm = () => {
     console.log(data);
   };
 
+  const handleBack = () => {
+    router.push('/');
+  };
+
   return (
     <Form formReturn={formReturn} onSubmit={onSubmit}>
       <Container direction="flex-col">
@@ -28,7 +39,7 @@ export const BasicForm = () => {
         <Input label="Last name" name="lastName" />
       </Container>
       <Container>
-        <Button variant="secondary">Back</Button>
+        <Button variant="secondary" onClick={handleBack}>Back</Button>
         <Button type="submit">Submit</Button>
       </Container>
     </Form>
